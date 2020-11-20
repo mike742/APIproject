@@ -35,6 +35,19 @@ namespace APIproject
                 app.UseDeveloperExceptionPage();
             }
 
+            // CORS 
+
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
+            app.UseCors(b => 
+                //b.WithOrigins("http://localhost:8079")
+                b.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+            );
+
+
             app.UseMvc();
         }
     }
